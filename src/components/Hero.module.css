@@ -1,0 +1,32 @@
+.hero {
+  margin-bottom: 72px;
+  animation: fadeDown 0.7s 0.1s ease both;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -3px;
+  margin-bottom: 28px;
+  color: var(--text);
+}
+
+.accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: var(--green);
+}
+
+.sub {
+  color: var(--muted2);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  max-width: 520px;
+  letter-spacing: 0px;
+}

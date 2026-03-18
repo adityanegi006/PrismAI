@@ -1,0 +1,127 @@
+/* ── Google Fonts ───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Design tokens ──────────────────────────────────────── */
+:root {
+  --bg:         #080809;
+  --surface:    #0f0f11;
+  --surface2:   #16161a;
+  --surface3:   #1e1e24;
+  --border:     #1e1e26;
+  --border2:    #28282f;
+  --border3:    #32323c;
+
+  --green:      #00e87a;
+  --green-dim:  #00e87a14;
+  --green-mid:  #00e87a40;
+
+  --text:       #f0f0f5;
+  --text2:      #c8c8d8;
+  --muted:      #7a7a90;
+  --muted2:     #a8a8c0;
+  --danger:     #ff4d6d;
+
+  --font-display: 'Syne', sans-serif;
+  --font-sans:    'DM Sans', sans-serif;
+  --font-serif:   'DM Sans', sans-serif;
+  --font-mono:    'DM Sans', sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Background ─────────────────────────────────────────── */
+
+/* Layer 1 — grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layer 2 — gradient mesh */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 0%,   #00e87a1a 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%,  #0ea5e918 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 100% 100%,#00e87a10 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 0% 100%,  #ff4d6d0f 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 50%,  #00e87a08 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.75); }
+}
+
+@keyframes nodeGlow {
+  from { box-shadow: 0 0 0 0 var(--green-dim); }
+  to   { box-shadow: 0 0 16px 4px var(--green-dim); }
+}
+
+@keyframes runPulse {
+  from { box-shadow: 0 0 0 0 #f5a62330; }
+  to   { box-shadow: 0 0 0 8px transparent; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}

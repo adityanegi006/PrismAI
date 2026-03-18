@@ -1,0 +1,179 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 24px;
+  animation: fadeDown 0.4s ease both;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+}
+
+.cardTitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.progressBadge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--green);
+  background: var(--green-dim);
+  border: 1px solid var(--green-mid);
+  padding: 3px 10px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+/* Progress bar */
+.progressTrack {
+  height: 2px;
+  background: var(--border2);
+  margin: 0 24px 24px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), #00d470);
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #ffffff33, transparent);
+  animation: shimmerBar 1.5s linear infinite;
+}
+
+@keyframes shimmerBar {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 16px 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.stepActive {
+  background: var(--green-dim);
+}
+
+.indicator {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  transition: all 0.4s ease;
+}
+
+.indicator.done {
+  background: var(--green-dim);
+  border-color: var(--green-mid);
+  color: var(--green);
+}
+
+.indicator.running {
+  background: var(--green-dim);
+  border-color: var(--green-mid);
+  color: var(--green);
+  animation: nodeGlow 1s ease-in-out infinite alternate;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 0.8s ease-in-out infinite alternate;
+}
+
+.stepInfo {
+  flex: 1;
+}
+
+.stepName {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  letter-spacing: -0.2px;
+}
+
+.stepSub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.stepTime {
+  min-width: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.elapsed {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Pulse bars for running state */
+.pulseBar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.pulseBar span {
+  display: block;
+  width: 3px;
+  height: 12px;
+  background: var(--green);
+  border-radius: 2px;
+  animation: barPulse 0.8s ease-in-out infinite;
+}
+
+.pulseBar span:nth-child(2) { animation-delay: 0.15s; }
+.pulseBar span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes barPulse {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
+  50%       { transform: scaleY(1);   opacity: 1; }
+}

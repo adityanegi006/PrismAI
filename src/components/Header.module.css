@@ -1,0 +1,118 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  animation: fadeDown 0.6s ease both;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logoMark {
+  width: 48px;
+  height: 42px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Status pill ────────────────────────────────────────── */
+.statusPill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: var(--green-dim);
+  border: 1px solid var(--green-mid);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Mode toggle ────────────────────────────────────────── */
+.modeToggle {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 100px;
+  padding: 4px;
+  transition: border-color 0.4s ease;
+}
+
+.toggleTrack {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.toggleIndicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 100px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.toggleOption {
+  position: relative;
+  z-index: 1;
+  padding: 7px 16px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .toggleOption { padding: 6px 12px; font-size: 11px; }
+  .statusPill { font-size: 9px; }
+}

@@ -1,0 +1,218 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeDown 0.5s ease both;
+  margin-bottom: 24px;
+}
+
+.outputHeader {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 7px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.tab:hover { color: var(--text); }
+
+.tabActive {
+  background: var(--green-dim);
+  border-color: var(--green-mid);
+  color: var(--green);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionBtn {
+  padding: 7px 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 7px;
+  color: var(--muted2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actionBtn:hover {
+  border-color: var(--green-mid);
+  color: var(--green);
+}
+
+/* Panels */
+.outputContent {
+  padding: 24px;
+}
+
+.panel { display: none; }
+.panelActive { display: block; }
+
+.contentBlock {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+}
+
+.blockLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--green);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blockLabel::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border2);
+}
+
+.contentText {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  letter-spacing: 0.1px;
+}
+
+.copyBlock {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copyBlock:hover {
+  color: var(--green);
+  border-color: var(--green-mid);
+}
+
+/* ── Info Strip ─────────────────────────────────────────── */
+.infoStrip {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.infoBlock {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+}
+
+.infoLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--green);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infoLabel::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border2);
+}
+
+.infoText {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+/* Topic pills */
+.topicPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topicPill {
+  padding: 6px 14px;
+  background: var(--green-dim);
+  border: 1px solid var(--green-mid);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.3px;
+}
+
+/* Insights list */
+.insightList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.insightDot {
+  color: var(--green);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
