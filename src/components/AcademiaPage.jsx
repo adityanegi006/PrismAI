@@ -54,14 +54,9 @@ export default function AcademiaPage({
         <div className={styles.cardBody}>
           <div className={styles.field}>
             <label className={styles.label}>ACADEMIA WEBHOOK URL</label>
-            <input
-              className={styles.input}
-              type="url"
-              value={webhookUrl}
-              onChange={(e) => updateWebhookUrl(e.target.value)}
-              placeholder="https://your-n8n.app.n8n.cloud/webhook/academia"
-              spellCheck={false}
-            />
+            <div className={styles.input} style={{ opacity: 0.6, cursor: 'default', userSelect: 'none' }}>
+              {webhookUrl}
+            </div>
           </div>
           <hr className={styles.divider} />
           <div className={styles.field}>
