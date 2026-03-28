@@ -1,7 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 
-const LS_ACADEMIA_WEBHOOK = 'prism_academia_webhook'
-const DEFAULT_ACADEMIA_WEBHOOK = 'https://kakarot006.app.n8n.cloud/webhook/creator-mode'
+const STATIC_ACADEMIA_WEBHOOK = 'https://kakarot006.app.n8n.cloud/webhook/academia-mode'
 
 const LOADING_MESSAGES = [
   'Extracting video ID...',
@@ -15,9 +14,7 @@ const LOADING_MESSAGES = [
 ]
 
 export function useAcademia() {
-  const [webhookUrl, setWebhookUrl] = useState(
-    () => localStorage.getItem(LS_ACADEMIA_WEBHOOK) ?? DEFAULT_ACADEMIA_WEBHOOK
-  )
+  const webhookUrl = STATIC_ACADEMIA_WEBHOOK
   const [videoUrl, setVideoUrl] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [loadingMsg, setLoadingMsg] = useState(0)
@@ -32,10 +29,7 @@ export function useAcademia() {
   const abortRef = useRef(null)
   const intervalRef = useRef(null)
 
-  const updateWebhookUrl = useCallback((val) => {
-    setWebhookUrl(val)
-    localStorage.setItem(LS_ACADEMIA_WEBHOOK, val)
-  }, [])
+  const updateWebhookUrl = useCallback(() => {}, [])
 
   const resetResults = useCallback(() => {
     setResults(null)
