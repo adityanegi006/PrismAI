@@ -122,7 +122,20 @@ export function usePipeline() {
 
       if (!response.ok) throw new Error(`Server responded with ${response.status}`)
 
-      const data = await response.json()
+      const text = await response.text()
+      if (!text || text.trim() === '') {
+        throw new Error('n8n returned an empty response. Check that your Respond to Webhook node has a Response Body set and the workflow is active.')
+      }
+
+      let data
+      try {
+        data = JSON.parse(text)
+      } catch {
+        throw new Error(`n8n returned invalid JSON. Raw response: ${text.slice(0, 200)}`)
+      }
+
+      // n8n sometimes wraps the response in an array
+      if (Array.isArray(data)) data = data[0]
 
       setTimeout(() => {
         setShowProgress(false)
