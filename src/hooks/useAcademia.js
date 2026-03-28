@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from 'react'
 
 const LS_ACADEMIA_WEBHOOK = 'prism_academia_webhook'
-const DEFAULT_ACADEMIA_WEBHOOK = '/webhook/academia'
+const DEFAULT_ACADEMIA_WEBHOOK = 'https://kakarot006.app.n8n.cloud/webhook/creator-mode'
 
 const LOADING_MESSAGES = [
   'Extracting video ID...',
