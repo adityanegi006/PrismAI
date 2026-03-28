@@ -17,17 +17,12 @@ export default function ConfigCard({
       </div>
 
       <div className={styles.cardBody}>
-        {/* Webhook URL */}
+        {/* Webhook URL - Static Display */}
         <div className={styles.field}>
           <label className={styles.label}>WEBHOOK URL</label>
-          <input
-            className={styles.input}
-            type="url"
-            value={webhookUrl}
-            onChange={(e) => onWebhookChange(e.target.value)}
-            placeholder="https://your-n8n.app.n8n.cloud/webhook/..."
-            spellCheck={false}
-          />
+          <div className={styles.input} style={{ opacity: 0.6, cursor: 'default', userSelect: 'none' }}>
+            {webhookUrl}
+          </div>
         </div>
 
         <hr className={styles.divider} />
