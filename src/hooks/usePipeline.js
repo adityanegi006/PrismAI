@@ -2,7 +2,7 @@ import { useState, useCallback, useRef } from 'react'
 import { PLATFORMS, PIPELINE_STEPS } from '../utils/constants'
 import { normalizeYouTubeUrl, fakeElapsed } from '../utils/helpers'
 
-const LS_WEBHOOK_KEY = 'prism_webhook'
+const STATIC_WEBHOOK = 'https://kakarot006.app.n8n.cloud/webhook/youtube-summary'
 
 /**
  * Status values for a single pipeline step:
@@ -14,9 +14,7 @@ function makeStepStates() {
 
 export function usePipeline() {
   // ── Inputs ─────────────────────────────────────────────
-  const [webhookUrl, setWebhookUrl] = useState(
-    () => localStorage.getItem(LS_WEBHOOK_KEY) ?? ''
-  )
+  const webhookUrl = STATIC_WEBHOOK
   const [videoUrl, setVideoUrl] = useState('')
 
   // ── Platform selection ──────────────────────────────────
@@ -35,10 +33,7 @@ export function usePipeline() {
   const abortRef = useRef(null)
 
   // ── Helpers ─────────────────────────────────────────────
-  const updateWebhookUrl = useCallback((val) => {
-    setWebhookUrl(val)
-    localStorage.setItem(LS_WEBHOOK_KEY, val)
-  }, [])
+  const updateWebhookUrl = useCallback(() => {}, [])
 
   const togglePlatform = useCallback((value) => {
     setSelectedPlatforms((prev) =>
